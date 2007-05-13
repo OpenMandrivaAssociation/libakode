@@ -1,7 +1,8 @@
 %define name libakode
-%define version	2.0.1
-%define release %mkrel 3
-%define lib_name %mklibname akode 2
+%define version	2.0.2
+%define release %mkrel 1
+%define major	2
+%define lib_name %mklibname akode %major
 
 %define lib_name_orig_kdemultimedia %mklibname kdemultimedia
 %define lib_major_kdemultimedia 1
@@ -18,11 +19,14 @@ Release: 	%{release}
 Group: 		System/Libraries
 License: 	LGPL
 URL: 		http://www.carewolf.com/akode/
-Source:		akode-2.0.tar.bz2
+Source:		akode-%version.tar.bz2
+Patch0:		akode-2.0.2-flac113-portable.patch
+Patch1:		akode-2.0.2-ffmpeg-int64_c.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: autoconf2.5
 BuildRequires:	libvorbis-devel liboggflac-devel mad-devel libalsa-devel
 BuildRequires:	libsamplerate-devel libltdl-devel jackit-devel
+BuildRequires:	speex-devel ffmpeg-devel
 %if %build_polypaudio
 BuildRequires:  libpolypaudio-devel
 %endif
@@ -77,7 +81,9 @@ This package contains the headers that programmers will need to develop
 applications which will use %{name}.
 
 %prep
-%setup -q -n akode-2.0
+%setup -q -n akode-%version
+%patch0 -p4
+%patch1 -p1
 
 %build
 %configure2_5x \
@@ -88,7 +94,8 @@ applications which will use %{name}.
 	--without-polypaudio \
 %endif
   --disable-final \
-  --enable-sdl 
+  --enable-sdl \
+  --with-extra-includes=%{_includedir}/speex
 %make
 
 %install
@@ -108,11 +115,13 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 
 %_bindir/akodeplay
-%_libdir/libakode.so.*
+%_libdir/libakode.so.%{major}*
 %_libdir/libakode.la
 
 %_libdir/libakode_alsa_sink.la
 %_libdir/libakode_alsa_sink.so
+%_libdir/libakode_ffmpeg_decoder.la
+%_libdir/libakode_ffmpeg_decoder.so
 %_libdir/libakode_jack_sink.la
 %_libdir/libakode_jack_sink.so
 %_libdir/libakode_mpc_decoder.la
