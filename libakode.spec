@@ -22,7 +22,6 @@ URL: 		http://www.carewolf.com/akode/
 Source:		akode-%version.tar.bz2
 Patch0:		akode-2.0.2-flac113-portable.patch
 Patch1:		akode-2.0.2-ffmpeg-int64_c.patch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: autoconf2.5
 BuildRequires:	libvorbis-devel liboggflac-devel mad-devel libalsa-devel
 BuildRequires:	libsamplerate-devel libltdl-devel jackit-devel
