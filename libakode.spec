@@ -1,6 +1,6 @@
 %define name libakode
 %define version	2.0.2
-%define release %mkrel 2
+%define release %mkrel 3
 %define major	2
 %define lib_name %mklibname akode %major
 
