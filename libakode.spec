@@ -13,7 +13,7 @@
 
 
 Name: 		%{name}
-Summary: 	aKode is the decoding library
+Summary: 	The decoding library
 Version: 	%{version}
 Release: 	%{release}
 Group: 		System/Libraries
