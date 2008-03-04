@@ -1,6 +1,5 @@
 %define name libakode
 %define version	2.0.2
-%define release %mkrel 4
 %define major	2
 %define lib_name %mklibname akode %major
 
@@ -15,7 +14,7 @@
 Name: 		%{name}
 Summary: 	The decoding library
 Version: 	%{version}
-Release: 	%{release}
+Release: 	%mkrel 5
 Group: 		System/Libraries
 License: 	LGPL
 URL: 		http://www.carewolf.com/akode/
