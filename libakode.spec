@@ -14,7 +14,7 @@
 Name: 		%{name}
 Summary: 	The decoding library
 Version: 	%{version}
-Release: 	%mkrel 5
+Release: 	%mkrel 6
 Group: 		System/Libraries
 License: 	LGPL
 URL: 		http://www.carewolf.com/akode/
