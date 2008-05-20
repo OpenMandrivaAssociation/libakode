@@ -22,6 +22,7 @@ Source:		akode-%version.tar.bz2
 Patch0:		akode-2.0.2-flac113-portable.patch
 Patch1:		akode-2.0.2-ffmpeg-int64_c.patch
 Patch2:		akode-2.0.2-ffmpeg-new-location.patch
+Patch3:         akode-2.0.2-fix-gcc-build.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: autoconf2.5
 BuildRequires:	libvorbis-devel liboggflac-devel mad-devel libalsa-devel
@@ -85,6 +86,7 @@ applications which will use %{name}.
 %patch0 -p4
 %patch1 -p1
 %patch2 -p0
+%patch3 -p0
 
 %build
 %configure2_5x \
