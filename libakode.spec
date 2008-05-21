@@ -7,16 +7,16 @@
 %define lib_major_kdemultimedia 1
 %define lib_name_kdemultimedia %lib_name_orig_kdemultimedia%lib_major_kdemultimedia
 
-%define build_polypaudio 0
-%{?_with_polypaudio: %global build_polypaudio 1}
+%define build_pulseaudio 1
+%{?_without_pulseaudio: %global build_pulseaudio 0}
 
 
 Name: 		%{name}
 Summary: 	The decoding library
 Version: 	%{version}
-Release: 	%mkrel 6
+Release: 	%mkrel 7
 Group: 		System/Libraries
-License: 	LGPL
+License: 	LGPLv2+
 URL: 		http://www.carewolf.com/akode/
 Source:		akode-%version.tar.bz2
 Patch0:		akode-2.0.2-flac113-portable.patch
@@ -25,13 +25,14 @@ Patch2:		akode-2.0.2-ffmpeg-new-location.patch
 Patch3:         akode-2.0.2-fix-gcc-build.patch
 # (Anssi 05/2008) Fix linking by using extern "C" for ffmpeg headers:
 Patch4:		akode-2.0.2-ffmpeg-extern-c.patch
+Patch5:		akode-pulseaudio.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: autoconf2.5
 BuildRequires:	libvorbis-devel liboggflac-devel mad-devel libalsa-devel
 BuildRequires:	libsamplerate-devel libltdl-devel jackit-devel
 BuildRequires:	speex-devel ffmpeg-devel
-%if %build_polypaudio
-BuildRequires:  libpolypaudio-devel
+%if %build_pulseaudio
+BuildRequires:  libpulseaudio-devel
 %endif
 
 %description
@@ -58,7 +59,7 @@ aKode also has the following audio outputs:
        (dmix is recommended). 
  sun:  Outputs to Sun OS/Solaris audio device . 
  jack: Outputs using Jack audio backend. 
- polyp:Output to the polypaudio server. Recommended for network 
+ polyp:Output to the pulseaudio server. Recommended for network 
        transparent audio.
 
 %package -n %{lib_name}
@@ -90,14 +91,16 @@ applications which will use %{name}.
 %patch2 -p0
 %patch3 -p0
 %patch4 -p1
+%patch5 -p1
 
 %build
+make -f Makefile.cvs
 %configure2_5x \
   --with-kscd-cdda \
-%if %build_polypaudio
-	--with-polypaudio \
+%if %build_pulseaudio
+	--with-pulseaudio \
 %else
-	--without-polypaudio \
+	--without-pulseaudio \
 %endif
   --disable-final \
   --enable-sdl \
@@ -136,7 +139,7 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/libakode_mpeg_decoder.so
 %_libdir/libakode_oss_sink.la
 %_libdir/libakode_oss_sink.so
-%if %build_polypaudio
+%if %build_pulseaudio
 %_libdir/libakode_polyp_sink.la
 %_libdir/libakode_polyp_sink.so
 %endif
