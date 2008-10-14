@@ -97,6 +97,7 @@ applications which will use %{name}.
 make -f Makefile.cvs
 %configure2_5x \
   --with-kscd-cdda \
+  --without-ffmpeg \
 %if %build_pulseaudio
 	--with-pulseaudio \
 %else
