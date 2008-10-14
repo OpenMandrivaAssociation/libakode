@@ -30,7 +30,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: autoconf2.5
 BuildRequires:	libvorbis-devel liboggflac-devel mad-devel libalsa-devel
 BuildRequires:	libsamplerate-devel libltdl-devel jackit-devel
-BuildRequires:	speex-devel ffmpeg-devel
+BuildRequires:	speex-devel #ffmpeg-devel
 %if %build_pulseaudio
 BuildRequires:  libpulseaudio-devel
 %endif
@@ -95,6 +95,9 @@ applications which will use %{name}.
 
 %build
 make -f Makefile.cvs
+# ffmpeg disabled temporarily as it doesn't build against changes in
+# current ffmpeg: just wanted to get a build through so cooker isn't
+# messed up any more. if you can fix, please do - AdamW 2008/10
 %configure2_5x \
   --with-kscd-cdda \
   --without-ffmpeg \
@@ -134,8 +137,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %_libdir/libakode_alsa_sink.la
 %_libdir/libakode_alsa_sink.so
-%_libdir/libakode_ffmpeg_decoder.la
-%_libdir/libakode_ffmpeg_decoder.so
+#%_libdir/libakode_ffmpeg_decoder.la
+#%_libdir/libakode_ffmpeg_decoder.so
 %_libdir/libakode_jack_sink.la
 %_libdir/libakode_jack_sink.so
 %_libdir/libakode_mpc_decoder.la
