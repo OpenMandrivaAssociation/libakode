@@ -30,7 +30,8 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: autoconf2.5
 BuildRequires:	libvorbis-devel liboggflac-devel mad-devel libalsa-devel
 BuildRequires:	libsamplerate-devel libltdl-devel jackit-devel
-BuildRequires:	speex-devel #ffmpeg-devel
+BuildRequires:	speex-devel 
+#BuildRequires:	ffmpeg-devel
 %if %build_pulseaudio
 BuildRequires:  libpulseaudio-devel
 %endif
