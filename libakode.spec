@@ -14,7 +14,7 @@
 Name: 		%{name}
 Summary: 	The decoding library
 Version: 	%{version}
-Release: 	%mkrel 9
+Release: 	%mkrel 10
 Group: 		System/Libraries
 License: 	LGPLv2+
 URL: 		http://www.carewolf.com/akode/
@@ -92,7 +92,7 @@ applications which will use %{name}.
 %patch2 -p0
 %patch3 -p0
 %patch4 -p1
-%patch5 -p1
+%patch5 -p1 -b .pulse
 
 %build
 make -f Makefile.cvs
