@@ -14,7 +14,7 @@
 Name: 		%{name}
 Summary: 	The decoding library
 Version: 	%{version}
-Release: 	%mkrel 10
+Release: 	%mkrel 11
 Group: 		System/Libraries
 License: 	LGPLv2+
 URL: 		http://www.carewolf.com/akode/
@@ -165,6 +165,6 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/libakode.so
 
 %_bindir/akode-config
-%multiarch %multiarch_bindir/akode-config
+%multiarch_bindir/akode-config
 
 
