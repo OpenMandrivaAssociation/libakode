@@ -1,0 +1,43 @@
+--- akode/lib/auto_sink.cpp~	2005-10-26 15:50:29.000000000 +0200
++++ akode/lib/auto_sink.cpp	2008-05-20 16:30:17.000000000 +0200
+@@ -22,6 +22,8 @@
+ #include "auto_sink.h"
+ 
+ #include <iostream>
++#include <stdlib.h>
++#include <string.h>
+ 
+ namespace aKode {
+ 
+--- akode/lib/player.cpp~	2006-11-05 15:37:48.000000000 +0100
++++ akode/lib/player.cpp	2008-05-20 16:42:43.000000000 +0200
+@@ -37,6 +37,8 @@
+ 
+ #include "player.h"
+ 
++#include <string.h>
++
+ #ifndef NDEBUG
+ #include <iostream>
+ #define AKODE_DEBUG(x) {std::cerr << "akode: " << x << "\n";}
+--- akode/lib/magic.cpp~	2005-10-20 22:47:17.000000000 +0200
++++ akode/lib/magic.cpp	2008-05-20 16:52:40.000000000 +0200
+@@ -22,6 +22,8 @@
+ #include "magic.h"
+ #include "file.h"
+ #include <iostream>
++#include <string.h>
++
+ using std::cerr;
+ 
+ namespace aKode {
+--- akode/akodeplay/akodeplay.cpp~	2006-11-06 14:20:52.000000000 +0100
++++ akode/akodeplay/akodeplay.cpp	2008-05-20 23:08:37.000000000 +0200
+@@ -19,6 +19,7 @@
+ */
+ 
+ #include <iostream>
++#include <cstdlib>
+ 
+ #include "../lib/akodelib.h"
+ #include "../lib/player.h"

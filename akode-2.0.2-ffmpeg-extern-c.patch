@@ -1,0 +1,16 @@
+Index: akode-2.0.2/akode/plugins/ffmpeg_decoder/ffmpeg_decoder.cpp
+===================================================================
+--- akode-2.0.2/akode/plugins/ffmpeg_decoder/ffmpeg_decoder.cpp
++++ akode-2.0.2/akode/plugins/ffmpeg_decoder/ffmpeg_decoder.cpp	2008-05-20 23:00:33.000000000 +0200
+@@ -29,9 +29,11 @@
+ #include "decoder.h"
+ 
+ #include <assert.h>
++extern "C" {
+ #include <libavcodec/avcodec.h>
+ #include <libavformat/avformat.h>
+ #include <libavformat/avio.h>
++}
+ 
+ #include "ffmpeg_decoder.h"
+ #include <iostream>

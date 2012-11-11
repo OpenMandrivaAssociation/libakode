@@ -1,0 +1,13 @@
+diff -Nurp -x '*~' akode-2.0.2/akode/plugins/ffmpeg_decoder/ffmpeg_decoder.cpp akode-2.0.2-f/akode/plugins/ffmpeg_decoder/ffmpeg_decoder.cpp
+--- akode-2.0.2/akode/plugins/ffmpeg_decoder/ffmpeg_decoder.cpp	2006-08-10 21:37:20.000000000 +0300
++++ akode-2.0.2-f/akode/plugins/ffmpeg_decoder/ffmpeg_decoder.cpp	2007-05-14 01:13:20.000000000 +0300
+@@ -18,6 +18,9 @@
+     Boston, MA 02110-1301, USA.
+ */
+ 
++/* ffmpeg depends on C99 INT64_C(), not available for C++ by default */
++#define __STDC_CONSTANT_MACROS
++
+ #include "akodelib.h"
+ // #ifdef HAVE_FFMPEG
+ 
