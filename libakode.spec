@@ -17,7 +17,7 @@ Version: 	%{version}
 Release: 	%mkrel 11
 Group: 		System/Libraries
 License: 	LGPLv2+
-URL: 		http://www.carewolf.com/akode/
+URL: 		https://www.carewolf.com/akode/
 Source:		akode-%version.tar.bz2
 Patch0:		akode-2.0.2-flac113-portable.patch
 Patch1:		akode-2.0.2-ffmpeg-int64_c.patch
