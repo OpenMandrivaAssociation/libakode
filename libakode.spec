@@ -27,6 +27,10 @@ Patch3:         akode-2.0.2-fix-gcc-build.patch
 Patch4:		akode-2.0.2-ffmpeg-extern-c.patch
 Patch5:		akode-pulseaudio.patch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires: autoconf2.5
 BuildRequires:	libvorbis-devel liboggflac-devel mad-devel libalsa-devel
 BuildRequires:	libsamplerate-devel libltdl-devel jackit-devel
